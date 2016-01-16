@@ -46,10 +46,20 @@ public final class SingletonHolder {
         pk1.setNaziv("Sladoled");
         pk1.setKategorija(k1);
 
+        Potkategorija pk3 = new Potkategorija();
+        pk3.setNaziv("Predjelo");
+        pk3.setKategorija(k1);
+
         Potkategorija pk2 = new Potkategorija();
         pk2.setNaziv("Gazirani sokovi");
         pk2.setKategorija(k2);
 
+        Potkategorija pk4 = new Potkategorija();
+        pk4.setNaziv("Gusti sokovi");
+        pk4.setKategorija(k2);
+
+        potkategorije.add(pk3);
+        potkategorije.add(pk4);
         potkategorije.add(pk1);
         potkategorije.add(pk2);
 
@@ -64,8 +74,20 @@ public final class SingletonHolder {
         sm2.setCena(120);
         sm2.setPotkategorija(pk2);
 
-        stavkeMenija.add(sm1);
+        StavkaMenija sm3 = new StavkaMenija();
+        sm3.setNaziv("Slana torta");
+        sm3.setCena(580);
+        sm3.setPotkategorija(pk3);
+
+        StavkaMenija sm4 = new StavkaMenija();
+        sm4.setNaziv("Arizona ice tea");
+        sm4.setCena(580);
+        sm4.setPotkategorija(pk4);
+
+        stavkeMenija.add(sm3);
         stavkeMenija.add(sm2);
+        stavkeMenija.add(sm1);
+        stavkeMenija.add(sm4);
 
         //korisnici
         Korisnik ko1 = new Korisnik();
@@ -118,12 +140,12 @@ public final class SingletonHolder {
         n1.setKonobar(ko3);
         n1.setVreme(new Date(2015, 10, 3, 14, 0));
         StavkaNarudzbine sn1 = new StavkaNarudzbine();
-        sn1.setStavkaMenija(sm1);
+        sn1.setStavkaMenija(sm3);
         sn1.setPlaceno(true);
         StavkaNarudzbine sn2 = new StavkaNarudzbine();
         sn2.setStavkaMenija(sm2);
         sn2.setPlaceno(false);
-        
+
         n1.getStavke().add(sn2);
         n1.getStavke().add(sn1);
 

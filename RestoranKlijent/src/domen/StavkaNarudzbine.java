@@ -5,6 +5,8 @@
  */
 package domen;
 
+import java.util.Objects;
+
 /**
  *
  * @author Megi
@@ -32,6 +34,23 @@ public class StavkaNarudzbine {
     @Override
     public String toString() {
         return stavkaMenija.getNaziv();
+    }
+
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final StavkaNarudzbine other = (StavkaNarudzbine) obj;
+        if (!Objects.equals(this.stavkaMenija, other.stavkaMenija)) {
+            return false;
+        }
+        return true;
     }
     
     

@@ -9,14 +9,13 @@ import domen.Kategorija;
 import domen.Potkategorija;
 import domen.StavkaMenija;
 import domen.StavkaNarudzbine;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
-import sun.security.pkcs.ContentInfo;
 import util.SingletonHolder;
-import util.StavkaMenijaModelTabele;
 import util.StavkeNarudzbineModelTabele;
 
 /**
@@ -70,11 +69,6 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
         });
 
         comboPotkategorija.setToolTipText("");
-        comboPotkategorija.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboPotkategorijaItemStateChanged(evt);
-            }
-        });
 
         jLabel4.setText("Potkategorija");
         jLabel4.setToolTipText("");
@@ -183,17 +177,6 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
         comboPotkategorija.setModel(new DefaultComboBoxModel(lista.toArray()));
     }//GEN-LAST:event_comboKategorijaItemStateChanged
 
-    private void comboPotkategorijaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboPotkategorijaItemStateChanged
- List<StavkaMenija> lista = new LinkedList<>();
-        Potkategorija pk = (Potkategorija) comboPotkategorija.getSelectedItem();
-        for (StavkaMenija sm : SingletonHolder.getInstance().getStavkeMenija()) {
-            if (sm.getPotkategorija().equals(pk)) {
-                lista.add(sm);
-            }
-        }
-        comboStavkaMenija.setModel(new DefaultComboBoxModel(lista.toArray()));       
-    }//GEN-LAST:event_comboPotkategorijaItemStateChanged
-
     /**
      * @param args the command line arguments
      */
@@ -243,6 +226,18 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
     private void srediFormu() {
         comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
 
+        comboPotkategorija.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                List<StavkaMenija> lista = new LinkedList<>();
+                Potkategorija pk = (Potkategorija) comboPotkategorija.getSelectedItem();
+                for (StavkaMenija sm : SingletonHolder.getInstance().getStavkeMenija()) {
+                    if (sm.getPotkategorija().equals(pk)) {
+                        lista.add(sm);
+                    }
+                }
+                comboStavkaMenija.setModel(new DefaultComboBoxModel(lista.toArray()));
+            }
+        });
         //comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
         //comboStavkaMenija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getStavkeMenija().toArray()));
     }
