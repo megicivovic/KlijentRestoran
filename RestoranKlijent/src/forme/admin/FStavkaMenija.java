@@ -64,7 +64,7 @@ public class FStavkaMenija extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jtxtNaziv = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Stavka menija");
 
         jLabel3.setText("Kategorija");
@@ -171,6 +171,7 @@ public class FStavkaMenija extends javax.swing.JFrame {
                     .get(index).setCena(Integer.parseInt(jtxtCena.getText()));
             ((StavkaMenijaModelTabele) tabela.getModel()).vratiListu()
                     .get(index).setPotkategorija((Potkategorija) comboPotkategorija.getSelectedItem());
+            tabela.revalidate();
             tabela.repaint();
         } else {
             StavkaMenija sm = new StavkaMenija();
@@ -178,6 +179,7 @@ public class FStavkaMenija extends javax.swing.JFrame {
             sm.setCena(Integer.parseInt(jtxtCena.getText()));
             sm.setPotkategorija((Potkategorija) comboPotkategorija.getSelectedItem());
             ((StavkaMenijaModelTabele) tabela.getModel()).vratiListu().add(sm);
+            tabela.revalidate();
             tabela.repaint();
         }
     }//GEN-LAST:event_jbtnPotvrdiActionPerformed
@@ -248,7 +250,8 @@ public class FStavkaMenija extends javax.swing.JFrame {
          comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
          comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
          
-        jtxtCena.setText(stavkaMenija.getNaziv());
+         jtxtNaziv.setText(stavkaMenija.getNaziv());
+        jtxtCena.setText(stavkaMenija.getCena()+"");
         jtxtKljucneReci.setText(stavkaMenija.getPotkategorija().getKategorija().getKljucneReci());
         comboPotkategorija.setSelectedItem(stavkaMenija.getPotkategorija());
         comboKategorija.setSelectedItem(stavkaMenija.getPotkategorija().getKategorija());

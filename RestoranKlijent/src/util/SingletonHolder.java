@@ -125,7 +125,7 @@ public final class SingletonHolder {
         ko4.setKorisnickaSifra("admin");
         ko4.setIme("Admin");
         ko4.setPrezime("Adminović");
-        ko4.setSlika("../slika3.jpg");
+        ko4.setSlika("C:\\Users\\Megi\\Documents\\Bluetooth Folder\\20150721_185759.jpg");
         ko4.setTelefon("6777187771");
         ko4.setEmail("admin@mail.com");
         ko4.setTipKorisnika("administrator");
@@ -150,7 +150,7 @@ public final class SingletonHolder {
         n1.getStavke().add(sn1);
 
         Narudzbina n2 = new Narudzbina();
-        n2.setSto("sto1");
+        n2.setSto("sto5");
         n2.setKonobar(ko3);
         n2.setVreme(new Date(2015, 10, 3, 12, 0));
         n2.getStavke().add(sn2);
@@ -164,7 +164,7 @@ public final class SingletonHolder {
         n3.getStavke().add(sn1);
 
         Narudzbina n4 = new Narudzbina();
-        n4.setSto("sto1");
+        n4.setSto("sto6");
         n4.setKonobar(ko1);
         n4.setVreme(new Date(2015, 10, 3, 10, 0));
         n4.getStavke().add(sn2);

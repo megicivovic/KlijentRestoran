@@ -5,12 +5,10 @@
  */
 package forme.konobar;
 
+import domen.Korisnik;
 import domen.Narudzbina;
 import domen.StavkaNarudzbine;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JCheckBox;
-import util.CheckBoxRenderer;
-import util.CheckboxEditorCekirajStavku;
+import util.SingletonHolder;
 import util.StavkeNarudzbineModelTabele;
 
 /**
@@ -18,17 +16,18 @@ import util.StavkeNarudzbineModelTabele;
  * @author Megi
  */
 public class FNarudzbineDetalji extends javax.swing.JFrame {
-    
+
     private Narudzbina narudzbina;
 
+    
     /**
      * Creates new form FNarudzbineDetalji
      */
     public FNarudzbineDetalji() {
         initComponents();
-        
+
     }
-    
+
     public FNarudzbineDetalji(Narudzbina narudzbina) {
         initComponents();
         this.narudzbina = narudzbina;
@@ -147,8 +146,9 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
                 ((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu().remove(sn);
             }
         }
+        jtblStavke.revalidate();
         jtblStavke.repaint();
-        
+
     }//GEN-LAST:event_jbtnUkloniStavkuActionPerformed
 
     /**
@@ -205,7 +205,13 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
             jtxtPlaceno.setText("ne");
         }
         jtblStavke.setModel(new StavkeNarudzbineModelTabele(narudzbina.getStavke()));
-        
+        if (SingletonHolder.getInstance().getUlogovaniKorisnik().getKorisnickoIme().equals("admin")){
+           jtxtSto.setEnabled(false);
+           jtxtPlaceno.setEnabled(false);
+           jbtnDodajStavku.setVisible(false);
+           jbtnUkloniStavku.setVisible(false);
+           jtblStavke.setEnabled(false);
+        }
     }
-    
+
 }

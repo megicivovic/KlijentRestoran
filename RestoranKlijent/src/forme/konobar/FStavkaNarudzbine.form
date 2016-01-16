@@ -49,7 +49,7 @@
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
-                  <Component id="jbtnDodaj" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbtnDodajStavku" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jbtnOdustani" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -82,7 +82,7 @@
                   <EmptySpace min="-2" pref="240" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jbtnOdustani" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jbtnDodaj" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jbtnDodajStavku" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="37" max="32767" attributes="0"/>
               </Group>
@@ -124,13 +124,13 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jbtnDodaj">
+    <Component class="javax.swing.JButton" name="jbtnDodajStavku">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dodaj"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnDodajActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnDodajStavkuActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbtnOdustani">

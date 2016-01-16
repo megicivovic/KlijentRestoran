@@ -35,7 +35,7 @@ public class ButtonEditorNarudzbinaDetalji extends DefaultCellEditor {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {//         
                 int id = tabela.getSelectedRow();
-                Narudzbina narudzbina = ((NarudzbinaModelTabeleKonobar) tabela.getModel()).vratiListu().get(id);
+                Narudzbina narudzbina = ((NarudzbinaModelTabeleAdministrator) tabela.getModel()).vratiListu().get(id);
                 FNarudzbineDetalji fn = null;
                 try {
                     fn = new FNarudzbineDetalji(narudzbina);                     

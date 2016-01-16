@@ -25,8 +25,8 @@ public class FKategorija extends javax.swing.JFrame {
     public FKategorija(Kategorija kategorija, JTable jtblKategorije) {
         initComponents();
         this.kategorija = kategorija;
-        this.tabela = tabela;
-        this.index = tabela.getSelectedRow();
+        this.tabela = jtblKategorije;
+        this.index = jtblKategorije.getSelectedRow();
         srediFormu();
 
     }
@@ -132,12 +132,14 @@ public class FKategorija extends javax.swing.JFrame {
         if (kategorija != null) {
             ((KategorijaModelTabele) tabela.getModel()).vratiListu().get(index).setNaziv(jtxtNaziv.getText());
             ((KategorijaModelTabele) tabela.getModel()).vratiListu().get(index).setKljucneReci(jtxtKljucneReci.getText());
+            tabela.revalidate();
             tabela.repaint();
         } else {
             Kategorija k = new Kategorija();
             k.setNaziv(jtxtNaziv.getText());
             k.setKljucneReci(jtxtKljucneReci.getText());
             ((KategorijaModelTabele) tabela.getModel()).vratiListu().add(k);
+            tabela.revalidate();
             tabela.repaint();
         }
     }//GEN-LAST:event_jbtnPotvrdiActionPerformed

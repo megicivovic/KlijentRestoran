@@ -254,7 +254,7 @@ public class FNarudzbine extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void srediFormu() {
-        jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(SingletonHolder.getInstance().getNarudzbine(SingletonHolder.getInstance().getUlogovaniKorisnik())));
+        jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(SingletonHolder.getInstance().getNarudzbine()));
         jtblNarudzbine.getColumn("Detalji").setCellRenderer(new ButtonRenderer());
 
         jtblNarudzbine.getColumn("Detalji").setCellEditor(new ButtonEditorNarudzbinaDetalji(new JCheckBox(),

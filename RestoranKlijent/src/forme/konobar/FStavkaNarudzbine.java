@@ -52,7 +52,7 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
         comboPotkategorija = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jbtnDodaj = new javax.swing.JButton();
+        jbtnDodajStavku = new javax.swing.JButton();
         jbtnOdustani = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         comboStavkaMenija = new javax.swing.JComboBox();
@@ -76,11 +76,11 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
         jLabel3.setText("Kategorija");
         jLabel3.setToolTipText("");
 
-        jbtnDodaj.setText("Dodaj");
-        jbtnDodaj.setToolTipText("");
-        jbtnDodaj.addActionListener(new java.awt.event.ActionListener() {
+        jbtnDodajStavku.setText("Dodaj");
+        jbtnDodajStavku.setToolTipText("");
+        jbtnDodajStavku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnDodajActionPerformed(evt);
+                jbtnDodajStavkuActionPerformed(evt);
             }
         });
 
@@ -120,7 +120,7 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(109, 109, 109)
-                    .addComponent(jbtnDodaj)
+                    .addComponent(jbtnDodajStavku)
                     .addGap(46, 46, 46)
                     .addComponent(jbtnOdustani)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -146,21 +146,25 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
                     .addGap(240, 240, 240)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbtnOdustani)
-                        .addComponent(jbtnDodaj))
+                        .addComponent(jbtnDodajStavku))
                     .addContainerGap(37, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajActionPerformed
+    private void jbtnDodajStavkuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajStavkuActionPerformed
         StavkaNarudzbine sn = new StavkaNarudzbine();
         sn.setStavkaMenija((StavkaMenija) comboStavkaMenija.getSelectedItem());
         sn.setPlaceno(false);
         ((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu().add(sn);
-        jtblStavke.repaint();
+
         this.dispose();
-    }//GEN-LAST:event_jbtnDodajActionPerformed
+        jtblStavke.revalidate();
+        jtblStavke.repaint();
+        
+
+    }//GEN-LAST:event_jbtnDodajStavkuActionPerformed
 
     private void jbtnOdustaniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnOdustaniActionPerformed
         this.dispose();
@@ -219,7 +223,7 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton jbtnDodaj;
+    private javax.swing.JButton jbtnDodajStavku;
     private javax.swing.JButton jbtnOdustani;
     // End of variables declaration//GEN-END:variables
 

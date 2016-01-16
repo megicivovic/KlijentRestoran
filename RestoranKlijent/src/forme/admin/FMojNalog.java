@@ -218,7 +218,7 @@ public class FMojNalog extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void srediFormu() {
-       korisnik = SingletonHolder.getInstance().getUlogovaniKorisnik();
+        korisnik = SingletonHolder.getInstance().getUlogovaniKorisnik();
         jtxtLozinka.setText(korisnik.getKorisnickaSifra());
         jtxtIme.setText(korisnik.getKorisnickoIme());
         jtxtPrezime.setText(korisnik.getPrezime());
@@ -227,11 +227,11 @@ public class FMojNalog extends javax.swing.JPanel {
         jtxtSlika.setText(korisnik.getSlika());
 
         try {
-            image = ImageIO.read(new File(korisnik.getSlika()));
-            ImageIcon icon = new ImageIcon(image);
-            JLabel label = new JLabel(icon);
-            jpnlSlika.add(label);
+            BufferedImage myPicture = ImageIO.read(new File(korisnik.getSlika()));
+            JLabel picLabel = new JLabel(new ImageIcon(myPicture));                 
+            jpnlSlika.add(picLabel);
             jpnlSlika.revalidate();
+            jpnlSlika.repaint();
         } catch (IOException ex) {
         }
     }
