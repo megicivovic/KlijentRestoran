@@ -5,6 +5,8 @@
  */
 package domen;
 
+import java.util.Objects;
+
 /**
  *
  * @author Megi
@@ -34,5 +36,24 @@ public class Kategorija {
     public void setKljucneReci(String kljucneReci) {
         this.kljucneReci = kljucneReci;
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Kategorija other = (Kategorija) obj;
+        if (!Objects.equals(this.naziv, other.naziv)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
+    
     
 }

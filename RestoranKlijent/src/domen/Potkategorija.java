@@ -5,6 +5,8 @@
  */
 package domen;
 
+import java.util.Objects;
+
 /**
  *
  * @author Megi
@@ -34,4 +36,21 @@ public class Potkategorija {
     public String toString() {
         return  naziv;
     }
+
+  
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Potkategorija other = (Potkategorija) obj;
+        if (!Objects.equals(this.naziv, other.naziv)) {
+            return false;
+        }
+        return true;
+    }
+  
 }
