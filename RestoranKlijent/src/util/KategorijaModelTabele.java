@@ -5,13 +5,11 @@
  */
 package util;
 
-
 import domen.Kategorija;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
-
 
 /**
  *
@@ -37,7 +35,7 @@ public class KategorijaModelTabele extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-       Kategorija p = null;
+        Kategorija p = null;
         try {
             p = (Kategorija) lk.get(rowIndex);
         } catch (Exception ex) {
@@ -46,11 +44,11 @@ public class KategorijaModelTabele extends AbstractTableModel {
 
         switch (columnIndex) {
             case 0:
-                return p.getNaziv();  
-                case 1:
-                    return "...";
-                case 2:
-                    return "x";
+                return p.getNaziv();
+            case 1:
+                return "...";
+            case 2:
+                return "x";
             default:
                 return "Greska";
         }
@@ -59,7 +57,7 @@ public class KategorijaModelTabele extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         switch (column) {
-            case 0:            
+            case 0:
                 return "Naziv";
             case 1:
                 return "Izmeni";
@@ -74,6 +72,7 @@ public class KategorijaModelTabele extends AbstractTableModel {
         this.lk.remove(red);
         fireTableDataChanged();
     }
+
     public void dodajRed(Kategorija kategorija) {
         this.lk.add(kategorija);
         fireTableDataChanged();
@@ -83,7 +82,6 @@ public class KategorijaModelTabele extends AbstractTableModel {
         return this.lk;
     }
 
-    
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
         if (columnIndex == 1 || columnIndex == 2) {

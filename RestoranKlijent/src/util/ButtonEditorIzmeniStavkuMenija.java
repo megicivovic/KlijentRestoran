@@ -33,10 +33,10 @@ public class ButtonEditorIzmeniStavkuMenija extends DefaultCellEditor {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {//         
                 int id = tabela.getSelectedRow();
-               StavkaMenija stavkaMenija = ((StavkaMenijaModelTabele) tabela.getModel()).vratiListu().get(id);
+                StavkaMenija stavkaMenija = ((StavkaMenijaModelTabele) tabela.getModel()).vratiListu().get(id);
                 FStavkaMenija fk = null;
                 try {
-                    fk = new FStavkaMenija(stavkaMenija,tabela);                    
+                    fk = new FStavkaMenija(stavkaMenija, tabela);
                     fk.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(ButtonEditorIzmeniStavkuMenija.class.getName()).log(Level.SEVERE, null, ex);

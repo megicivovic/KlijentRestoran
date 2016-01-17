@@ -12,9 +12,9 @@ import java.util.Objects;
  * @author Megi
  */
 public class Kategorija {
+
     private String naziv;
     private String kljucneReci;
-    
 
     public String getNaziv() {
         return naziv;
@@ -23,10 +23,10 @@ public class Kategorija {
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
-        return  naziv;
+        return naziv;
     }
 
     public String getKljucneReci() {
@@ -36,7 +36,6 @@ public class Kategorija {
     public void setKljucneReci(String kljucneReci) {
         this.kljucneReci = kljucneReci;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -52,8 +51,5 @@ public class Kategorija {
         }
         return true;
     }
-    
-    
-    
-    
+
 }

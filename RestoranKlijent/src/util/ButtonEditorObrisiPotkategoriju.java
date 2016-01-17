@@ -5,14 +5,9 @@
  */
 package util;
 
-import forme.admin.FKategorija;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -35,18 +30,19 @@ public class ButtonEditorObrisiPotkategoriju extends DefaultCellEditor {
             public void actionPerformed(ActionEvent e) {//         
                 int id = tabela.getSelectedRow();
                 String potkategorija = (String) tabela.getModel().getValueAt(id, 0);
-                
-                 int n = JOptionPane.showConfirmDialog(tabela, "Da li ste sigurni da želite da"
-                + " obrišete potkategoriju - "+potkategorija+"?",
-                "Brisanje potkategorije",
-                JOptionPane.YES_NO_OPTION);
-        if (n == JOptionPane.YES_OPTION) {
-             ((PotkategorijaModelTabele)tabela.getModel()).obrisiRed(id);
-            tabela.repaint();
-            JOptionPane.showMessageDialog(tabela,"Uspešno ste obrisali potkategoriju!", "Brisanje potkategorije",JOptionPane.INFORMATION_MESSAGE );
-        } else if (n == JOptionPane.NO_OPTION) {
 
-        } 
+                int n = JOptionPane.showConfirmDialog(tabela, "Da li ste sigurni da želite da"
+                        + " obrišete potkategoriju - " + potkategorija + "?",
+                        "Brisanje potkategorije",
+                        JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) {
+                    ((PotkategorijaModelTabele) tabela.getModel()).obrisiRed(id);
+                    tabela.revalidate();
+                    tabela.repaint();
+                    JOptionPane.showMessageDialog(tabela, "Uspešno ste obrisali potkategoriju!", "Brisanje potkategorije", JOptionPane.INFORMATION_MESSAGE);
+                } else if (n == JOptionPane.NO_OPTION) {
+
+                }
 
             }
         });

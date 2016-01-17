@@ -5,14 +5,9 @@
  */
 package util;
 
-import forme.admin.FKategorija;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -41,7 +36,8 @@ public class ButtonEditorObrisiStavkuMenija extends DefaultCellEditor {
                         "Brisanje stavke menija",
                         JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) {
-                     ((StavkaMenijaModelTabele) tabela.getModel()).obrisiRed(id);
+                    ((StavkaMenijaModelTabele) tabela.getModel()).obrisiRed(id);
+                    tabela.revalidate();
                     tabela.repaint();
                     JOptionPane.showMessageDialog(tabela, "Uspešno ste obrisali stavku menija!", "Brisanje stavke menija", JOptionPane.INFORMATION_MESSAGE);
                 }

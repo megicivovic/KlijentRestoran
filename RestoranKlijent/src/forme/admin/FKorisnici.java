@@ -6,8 +6,6 @@
 package forme.admin;
 
 import domen.Korisnik;
-import domen.StavkaMenija;
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -50,13 +48,14 @@ public class FKorisnici extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jtxtEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jBtnPronadji = new javax.swing.JButton();
+        jBtnPonisti = new javax.swing.JButton();
         comboTipKorisnika = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblKorisnici = new javax.swing.JTable();
         jbtnDodajKorisnika = new javax.swing.JButton();
         jbtnObrisi = new javax.swing.JButton();
+        jBtnPronadji = new javax.swing.JButton();
 
         jLabel1.setText("Korisničko ime");
 
@@ -70,10 +69,10 @@ public class FKorisnici extends javax.swing.JPanel {
 
         jLabel6.setText("Email");
 
-        jBtnPronadji.setText("Pronađi");
-        jBtnPronadji.addActionListener(new java.awt.event.ActionListener() {
+        jBtnPonisti.setText("X   Poništi filtere");
+        jBtnPonisti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtnPronadjiActionPerformed(evt);
+                jBtnPonistiActionPerformed(evt);
             }
         });
 
@@ -105,6 +104,13 @@ public class FKorisnici extends javax.swing.JPanel {
             }
         });
 
+        jBtnPronadji.setText("Pronađi");
+        jBtnPronadji.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnPronadjiActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,32 +119,35 @@ public class FKorisnici extends javax.swing.JPanel {
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
+                        .addComponent(jLabel6)
+                        .addContainerGap(548, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
-                                .addComponent(jBtnPronadji)))
-                        .addContainerGap(299, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jtxtKorisnickoIme, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtxtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jtxtLozinka, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addComponent(comboTipKorisnika, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jtxtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jtxtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBtnPronadji)
+                                .addGap(72, 72, 72)
+                                .addComponent(jBtnPonisti))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jtxtKorisnickoIme, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtxtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(47, 47, 47)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jtxtLozinka, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(comboTipKorisnika, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jtxtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jtxtTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(106, 106, 106))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -186,6 +195,7 @@ public class FKorisnici extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnPonisti, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBtnPronadji, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,6 +215,8 @@ public class FKorisnici extends javax.swing.JPanel {
                     JOptionPane.YES_NO_OPTION);
             if (n == JOptionPane.YES_OPTION) {
                 ((KorisnikModelTabele) jtblKorisnici.getModel()).obrisiRed(jtblKorisnici.getSelectedRow());
+                jtblKorisnici.revalidate();
+                jtblKorisnici.repaint();
                 JOptionPane.showMessageDialog(this, "Uspešno ste obrisali korisnika!", "Brisanje korisnika", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
@@ -222,57 +234,77 @@ public class FKorisnici extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jbtnDodajKorisnikaActionPerformed
 
+    private void jBtnPonistiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPonistiActionPerformed
+        jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
+        jtxtEmail.setText("");
+        jtxtIme.setText("");
+        jtxtKorisnickoIme.setText("");
+        jtxtLozinka.setText("");
+        jtxtPrezime.setText("");
+        jtxtTelefon.setText("");
+    }//GEN-LAST:event_jBtnPonistiActionPerformed
+
     private void jBtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPronadjiActionPerformed
-        List<Korisnik> korisnici = ((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu();
+       // List<Korisnik> korisnici = new LinkedList<>(((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu());
+        jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
         List<Korisnik> korisniciPretraga = new LinkedList<Korisnik>();
 
-        for (Korisnik n : korisnici) {
-            if (!jtxtKorisnickoIme.getText().equals("")) {
+        if (!jtxtKorisnickoIme.getText().equals("")) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n = korisniciPretraga.get(i);
                 if (n.getKorisnickoIme().contains(jtxtKorisnickoIme.getText())) {
                     korisniciPretraga.add(n);
                 }
             }
         }
-        for (Korisnik n1 : korisniciPretraga) {
-            if (!jtxtLozinka.getText().equals("")) {
+
+        if (!jtxtLozinka.getText().equals("")) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n1 = korisniciPretraga.get(i);
                 if (!n1.getKorisnickaSifra().contains(jtxtLozinka.getText())) {
                     korisniciPretraga.remove(n1);
                 }
             }
         }
-        for (Korisnik n : korisniciPretraga) {
-            if (!jtxtIme.getText().equals("")) {
+
+        if (!jtxtIme.getText().equals("")) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n = korisniciPretraga.get(i);
                 if (!n.getIme().contains(jtxtIme.getText())) {
                     korisniciPretraga.remove(n);
                 }
             }
         }
-        for (Korisnik n : korisniciPretraga) {
-            if (!jtxtPrezime.getText().equals("")) {
+
+        if (!jtxtPrezime.getText().equals("")) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n = korisniciPretraga.get(i);
                 if (!n.getPrezime().contains(jtxtPrezime.getText())) {
                     korisniciPretraga.remove(n);
                 }
             }
         }
 
-        for (Korisnik n : korisniciPretraga) {
-            if (comboTipKorisnika.getSelectedIndex() > -1) {
+        if (comboTipKorisnika.getSelectedIndex() > -1) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n = korisniciPretraga.get(i);
                 if (!n.getTipKorisnika().equals(comboTipKorisnika.getSelectedItem())) {
                     korisniciPretraga.remove(n);
                 }
             }
         }
-        
-        for (Korisnik n : korisnici) {
-            if (!jtxtTelefon.getText().equals("")) {
+
+        if (!jtxtTelefon.getText().equals("")) {
+            for (int i = 0; i < korisniciPretraga.size(); i++) {
+                Korisnik n = korisniciPretraga.get(i);
                 if (!n.getTelefon().contains(jtxtTelefon.getText())) {
                     korisniciPretraga.remove(n);
                 }
             }
         }
-        
-         for (Korisnik n : korisniciPretraga) {
-            if (!jtxtEmail.getText().equals("")) {
+
+        if (!jtxtEmail.getText().equals("")) {
+            for (Korisnik n : korisniciPretraga) {
                 if (!n.getEmail().contains(jtxtEmail.getText())) {
                     korisniciPretraga.remove(n);
                 }
@@ -280,12 +312,16 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         jtblKorisnici.setModel(new KorisnikModelTabele(korisniciPretraga));
+        if (korisniciPretraga.size()==0){
+          JOptionPane.showMessageDialog(this, "Nema korisnika koji zadovoljavaju rezultate pretrage!", "Pretraga", JOptionPane.INFORMATION_MESSAGE);
+        }
         jtblKorisnici.revalidate();
+        jtblKorisnici.repaint();
     }//GEN-LAST:event_jBtnPronadjiActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox comboTipKorisnika;
+    private javax.swing.JButton jBtnPonisti;
     private javax.swing.JButton jBtnPronadji;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

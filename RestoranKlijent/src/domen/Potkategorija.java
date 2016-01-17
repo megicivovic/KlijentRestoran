@@ -31,13 +31,12 @@ public class Potkategorija {
     public void setKategorija(Kategorija kategorija) {
         this.kategorija = kategorija;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
-        return  naziv;
+        return naziv;
     }
 
-  
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -52,5 +51,5 @@ public class Potkategorija {
         }
         return true;
     }
-  
+
 }

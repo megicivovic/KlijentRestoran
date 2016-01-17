@@ -5,16 +5,12 @@
  */
 package forme.konobar;
 
-import domen.Narudzbina;
 import javax.swing.JCheckBox;
-import util.ButtonEditorIzmeniStavkuMenija;
 import util.ButtonEditorNarudzbinaDetalji;
 import util.ButtonEditorObrisiNarudzbinu;
-import util.ButtonEditorObrisiStavkuMenija;
 import util.ButtonRenderer;
 import util.NarudzbinaModelTabeleKonobar;
 import util.SingletonHolder;
-import util.StavkaMenijaModelTabele;
 
 /**
  *
@@ -82,7 +78,6 @@ public class FNarudzbine extends javax.swing.JPanel {
                 .addGap(61, 61, 61))
         );
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

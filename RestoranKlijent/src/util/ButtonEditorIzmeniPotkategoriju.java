@@ -36,7 +36,7 @@ public class ButtonEditorIzmeniPotkategoriju extends DefaultCellEditor {
                 Potkategorija potkategorija = ((PotkategorijaModelTabele) tabela.getModel()).vratiListu().get(id);
                 FPotkategorija fk = null;
                 try {
-                    fk = new FPotkategorija(potkategorija,tabela);                     
+                    fk = new FPotkategorija(potkategorija, tabela);
                     fk.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(ButtonEditorIzmeniPotkategoriju.class.getName()).log(Level.SEVERE, null, ex);

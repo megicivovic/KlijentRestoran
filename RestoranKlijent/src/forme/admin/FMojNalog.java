@@ -6,12 +6,11 @@
 package forme.admin;
 
 import domen.Korisnik;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import util.SingletonHolder;
 
@@ -58,6 +57,7 @@ public class FMojNalog extends javax.swing.JPanel {
         jtxtSlika = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jpnlSlika = new javax.swing.JPanel();
+        jlblSlika = new javax.swing.JLabel();
 
         jLabel1.setText("Lozinka*");
 
@@ -90,11 +90,13 @@ public class FMojNalog extends javax.swing.JPanel {
         jpnlSlika.setLayout(jpnlSlikaLayout);
         jpnlSlikaLayout.setHorizontalGroup(
             jpnlSlikaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 192, Short.MAX_VALUE)
+            .addGroup(jpnlSlikaLayout.createSequentialGroup()
+                .addComponent(jlblSlika, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jpnlSlikaLayout.setVerticalGroup(
             jpnlSlikaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
+            .addComponent(jlblSlika, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,7 +200,6 @@ public class FMojNalog extends javax.swing.JPanel {
         fis.setVisible(true);
     }//GEN-LAST:event_jbtnDodajActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -208,6 +209,7 @@ public class FMojNalog extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton jbtnDodaj;
     private javax.swing.JButton jbtnPotvrdi;
+    private javax.swing.JLabel jlblSlika;
     private javax.swing.JPanel jpnlSlika;
     private javax.swing.JTextField jtxtBrojTelefona;
     private javax.swing.JTextField jtxtEmail;
@@ -226,14 +228,11 @@ public class FMojNalog extends javax.swing.JPanel {
         jtxtEmail.setText(korisnik.getEmail());
         jtxtSlika.setText(korisnik.getSlika());
 
-        try {
-            BufferedImage myPicture = ImageIO.read(new File(korisnik.getSlika()));
-            JLabel picLabel = new JLabel(new ImageIcon(myPicture));                 
-            jpnlSlika.add(picLabel);
-            jpnlSlika.revalidate();
-            jpnlSlika.repaint();
-        } catch (IOException ex) {
-        }
+        ImageIcon ii = new ImageIcon(korisnik.getSlika());
+        ii.setImage(getScaledImage(ii.getImage(), 193, 147));
+
+        jlblSlika.setIcon(ii); // NOI18N
+
     }
 
     public String getPutanjaSlike() {
@@ -244,5 +243,16 @@ public class FMojNalog extends javax.swing.JPanel {
         this.putanjaSlike = putanjaSlike;
         jtxtSlika.setText(putanjaSlike);
         korisnik.setSlika(putanjaSlike);
+    }
+
+    private Image getScaledImage(Image srcImg, int w, int h) {
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
 }

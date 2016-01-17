@@ -5,7 +5,6 @@
  */
 package forme.konobar;
 
-import domen.Korisnik;
 import domen.Narudzbina;
 import domen.StavkaNarudzbine;
 import util.SingletonHolder;
@@ -19,7 +18,6 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
 
     private Narudzbina narudzbina;
 
-    
     /**
      * Creates new form FNarudzbineDetalji
      */
@@ -205,12 +203,12 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
             jtxtPlaceno.setText("ne");
         }
         jtblStavke.setModel(new StavkeNarudzbineModelTabele(narudzbina.getStavke()));
-        if (SingletonHolder.getInstance().getUlogovaniKorisnik().getKorisnickoIme().equals("admin")){
-           jtxtSto.setEnabled(false);
-           jtxtPlaceno.setEnabled(false);
-           jbtnDodajStavku.setVisible(false);
-           jbtnUkloniStavku.setVisible(false);
-           jtblStavke.setEnabled(false);
+        if (SingletonHolder.getInstance().getUlogovaniKorisnik().getKorisnickoIme().equals("admin")) {
+            jtxtSto.setEnabled(false);
+            jtxtPlaceno.setEnabled(false);
+            jbtnDodajStavku.setVisible(false);
+            jbtnUkloniStavku.setVisible(false);
+            jtblStavke.setEnabled(false);
         }
     }
 

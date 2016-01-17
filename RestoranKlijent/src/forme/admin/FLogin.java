@@ -105,9 +105,11 @@ public class FLogin extends javax.swing.JFrame {
         boolean postoji = false;
         Korisnik ulogovani = null;
         String korisnickoIme = jtxtKorisnickoIme.getText().trim();
+        String lozinka = jtxtSifra.getText().trim();
         if (!korisnickoIme.equals("")) {
-            for (Korisnik k : SingletonHolder.getInstance().getKorisnici()) {
-                if (k.getKorisnickoIme().equals(korisnickoIme)) {
+            for (int i = 0; i < SingletonHolder.getInstance().getKorisnici().size(); i++) {
+                Korisnik k = SingletonHolder.getInstance().getKorisnici().get(i);
+                if (k.getKorisnickoIme().equals(korisnickoIme) && k.getKorisnickaSifra().equals(lozinka)) {
                     postoji = true;
                     ulogovani = k;
                     break;

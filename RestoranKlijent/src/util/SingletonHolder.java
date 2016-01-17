@@ -98,14 +98,14 @@ public final class SingletonHolder {
         ko1.setTipKorisnika("konobar");
         ko1.setIme("Marko");
         ko1.setPrezime("Marković");
-        ko1.setSlika("../slika1.jpg");
+        ko1.setSlika("slika1.jpg");
 
         Korisnik ko2 = new Korisnik();
         ko2.setKorisnickoIme("markom5");
         ko2.setKorisnickaSifra("markom5");
         ko2.setIme("Marko");
         ko2.setPrezime("Petrović");
-        ko2.setSlika("../slika2.jpg");
+        ko2.setSlika("slika2.jpg");
         ko2.setTelefon("87278227");
         ko2.setEmail("markom5@mail.com");
         ko2.setTipKorisnika("konobar");
@@ -125,7 +125,7 @@ public final class SingletonHolder {
         ko4.setKorisnickaSifra("admin");
         ko4.setIme("Admin");
         ko4.setPrezime("Adminović");
-        ko4.setSlika("C:\\Users\\Megi\\Documents\\Bluetooth Folder\\20150721_185759.jpg");
+        ko4.setSlika("slika3.jpg");
         ko4.setTelefon("6777187771");
         ko4.setEmail("admin@mail.com");
         ko4.setTipKorisnika("administrator");

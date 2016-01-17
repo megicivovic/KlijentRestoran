@@ -51,6 +51,8 @@ public class KorisnikModelTabele extends AbstractTableModel {
                 return p.getPrezime();
             case 3:
                 return p.getSlika();
+            case 4:
+                return p.getTipKorisnika();                
             default:
                 return "Greska";
         }
@@ -66,9 +68,11 @@ public class KorisnikModelTabele extends AbstractTableModel {
             case 2:
                 return "Prezime";
             case 3:
-                return "Slika ";
+                return "Slika";
+            case 4:
+                return "Tip korisnika";
             default:
-                return "Greska";
+                return "Greška";
         }
     }
 

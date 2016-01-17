@@ -5,7 +5,6 @@
  */
 package forme.admin;
 
-import domen.Kategorija;
 import domen.Potkategorija;
 import domen.StavkaMenija;
 import javax.swing.DefaultComboBoxModel;
@@ -18,11 +17,11 @@ import util.StavkaMenijaModelTabele;
  * @author Megi
  */
 public class FStavkaMenija extends javax.swing.JFrame {
-    
+
     private StavkaMenija stavkaMenija;
     private JTable tabela;
     private int index;
-    
+
     public FStavkaMenija(StavkaMenija stavkaMenija, JTable tabela) {
         initComponents();
         this.stavkaMenija = stavkaMenija;
@@ -37,7 +36,7 @@ public class FStavkaMenija extends javax.swing.JFrame {
     public FStavkaMenija() {
         initComponents();
     }
-    
+
     FStavkaMenija(JTable jtblStavke) {
         tabela = jtblStavke;
     }
@@ -241,17 +240,17 @@ public class FStavkaMenija extends javax.swing.JFrame {
     public StavkaMenija getStavkaMenija() {
         return stavkaMenija;
     }
-    
+
     public void setStavkaMenija(StavkaMenija stavkaMenija) {
         this.stavkaMenija = stavkaMenija;
     }
-    
+
     private void srediFormu() {
-         comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
-         comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
-         
-         jtxtNaziv.setText(stavkaMenija.getNaziv());
-        jtxtCena.setText(stavkaMenija.getCena()+"");
+        comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
+        comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
+
+        jtxtNaziv.setText(stavkaMenija.getNaziv());
+        jtxtCena.setText(stavkaMenija.getCena() + "");
         jtxtKljucneReci.setText(stavkaMenija.getPotkategorija().getKategorija().getKljucneReci());
         comboPotkategorija.setSelectedItem(stavkaMenija.getPotkategorija());
         comboKategorija.setSelectedItem(stavkaMenija.getPotkategorija().getKategorija());

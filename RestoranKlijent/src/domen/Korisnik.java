@@ -5,11 +5,6 @@
  */
 package domen;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 /**
  *
  * @author Megi
@@ -35,10 +30,10 @@ public class Korisnik {
 
     @Override
     public String toString() {
-        return ime+" "+prezime;
+        return ime + " " + prezime;
     }
 
-      public String getKorisnickaSifra() {
+    public String getKorisnickaSifra() {
         return korisnickaSifra;
     }
 
@@ -61,7 +56,6 @@ public class Korisnik {
         return true;
     }
 
-   
     public String getIme() {
         return ime;
     }
@@ -110,5 +104,4 @@ public class Korisnik {
         this.email = email;
     }
 
-    
 }

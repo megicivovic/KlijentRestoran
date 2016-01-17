@@ -5,7 +5,6 @@
  */
 package forme.konobar;
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 import forme.admin.FLogin;
 import forme.admin.FMojNalog;
 import javax.swing.JOptionPane;
@@ -134,7 +133,7 @@ public class FGlavnaKonobar extends javax.swing.JFrame {
         jpnlGlavna.removeAll();
         jpnlGlavna.repaint();
         JPanel jpnlNarudzbine = new FNarudzbine();
-        jpnlNarudzbine.setSize(jpnlGlavna.getWidth(), jpnlGlavna.getHeight());        
+        jpnlNarudzbine.setSize(jpnlGlavna.getWidth(), jpnlGlavna.getHeight());
         //this.validate();
         jpnlGlavna.add(jpnlNarudzbine);
         //jpnlGlavna.validate();
@@ -149,8 +148,7 @@ public class FGlavnaKonobar extends javax.swing.JFrame {
         jpnlGlavna.add(nova);
         jpnlGlavna.validate();
         this.validate();
-               
-       
+
     }//GEN-LAST:event_jbtnPocetnaActionPerformed
 
     private void jbtnNalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnNalogActionPerformed
@@ -161,8 +159,7 @@ public class FGlavnaKonobar extends javax.swing.JFrame {
         jpnlGlavna.add(jpnlMojNalog);
         jpnlGlavna.validate();
         this.validate();
-                
-      
+
     }//GEN-LAST:event_jbtnNalogActionPerformed
 
     /**

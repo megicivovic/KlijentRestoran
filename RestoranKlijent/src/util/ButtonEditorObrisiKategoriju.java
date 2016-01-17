@@ -5,14 +5,9 @@
  */
 package util;
 
-import forme.admin.FKategorija;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -41,7 +36,8 @@ public class ButtonEditorObrisiKategoriju extends DefaultCellEditor {
                         "Brisanje kategorije",
                         JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) {
-                    ((KategorijaModelTabele)tabela.getModel()).obrisiRed(id);
+                    ((KategorijaModelTabele) tabela.getModel()).obrisiRed(id);
+                    tabela.revalidate();
                     tabela.repaint();
                     JOptionPane.showMessageDialog(tabela, "Uspešno ste obrisali kategoriju!", "Brisanje kategorije", JOptionPane.INFORMATION_MESSAGE);
                 }

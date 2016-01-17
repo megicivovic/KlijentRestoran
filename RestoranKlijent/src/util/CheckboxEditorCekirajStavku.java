@@ -10,12 +10,9 @@ import forme.admin.FKategorija;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -38,7 +35,7 @@ public class CheckboxEditorCekirajStavku extends DefaultCellEditor {
                 Kategorija kategorija = ((KategorijaModelTabele) tabela.getModel()).vratiListu().get(id);
                 FKategorija fk = null;
                 try {
-                    fk = new FKategorija(kategorija,tabela);                      
+                    fk = new FKategorija(kategorija, tabela);
                     fk.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(CheckboxEditorCekirajStavku.class.getName()).log(Level.SEVERE, null, ex);

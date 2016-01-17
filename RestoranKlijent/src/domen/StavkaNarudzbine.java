@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author Megi
  */
 public class StavkaNarudzbine {
+
     private StavkaMenija stavkaMenija;
     private boolean placeno;
 
@@ -36,8 +37,6 @@ public class StavkaNarudzbine {
         return stavkaMenija.getNaziv();
     }
 
-    
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -52,6 +51,5 @@ public class StavkaNarudzbine {
         }
         return true;
     }
-    
-    
+
 }

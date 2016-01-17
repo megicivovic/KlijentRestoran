@@ -7,7 +7,6 @@ package forme.admin;
 
 import domen.Kategorija;
 import domen.Potkategorija;
-import java.awt.HeadlessException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import util.PotkategorijaModelTabele;
@@ -138,7 +137,7 @@ public class FPotkategorija extends javax.swing.JFrame {
         if (potkategorija != null) {
             ((PotkategorijaModelTabele) tabela.getModel()).vratiListu().get(index).setNaziv(jtxtNaziv.getText());
             ((PotkategorijaModelTabele) tabela.getModel()).vratiListu().get(index).setKategorija((Kategorija) comboKategorija.getSelectedItem());
-           tabela.revalidate();
+            tabela.revalidate();
             tabela.repaint();
         } else {
             Potkategorija k = new Potkategorija();

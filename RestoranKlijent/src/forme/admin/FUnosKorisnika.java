@@ -6,6 +6,8 @@
 package forme.admin;
 
 import domen.Korisnik;
+import java.util.List;
+import javax.swing.JOptionPane;
 import util.SingletonHolder;
 
 /**
@@ -104,46 +106,43 @@ public class FUnosKorisnika extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jtxtBrojTelefona)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jtxtSlika)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbtnDodaj))
+                            .addComponent(jtxtEmail)
+                            .addComponent(jtxtPrezime)
+                            .addComponent(jtxtIme)
+                            .addComponent(jtxtLozinka)
+                            .addComponent(jtxtKorisnickoIme)
+                            .addComponent(comboTipKorisnika, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtxtBrojTelefona)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jtxtSlika)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jbtnDodaj))
-                                    .addComponent(jtxtEmail)
-                                    .addComponent(jtxtPrezime)
-                                    .addComponent(jtxtIme)
-                                    .addComponent(jtxtLozinka)
-                                    .addComponent(jtxtKorisnickoIme)
-                                    .addComponent(comboTipKorisnika, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jlblGreskaKorisnickoIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlblGreskaIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlblGreskaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jlblGreskaPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(100, 100, 100)
-                                .addComponent(jLabel9))))
+                            .addComponent(jlblGreskaKorisnickoIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlblGreskaIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlblGreskaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlblGreskaPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jbtnPotvrdi)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel9))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(187, 187, 187)
+                .addComponent(jbtnPotvrdi))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,24 +198,43 @@ public class FUnosKorisnika extends javax.swing.JPanel {
 
     private void jbtnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajActionPerformed
         FIzborSlike fis = new FIzborSlike(null, this);
-        fis.setVisible(true);    
+        fis.setVisible(true);
     }//GEN-LAST:event_jbtnDodajActionPerformed
 
     private void jbtnPotvrdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPotvrdiActionPerformed
-        Korisnik k = new Korisnik();
-        k.setKorisnickoIme(jtxtKorisnickoIme.getText());
-        k.setKorisnickaSifra(jtxtLozinka.getText());
-        k.setIme(jtxtIme.getText());
-        k.setPrezime(jtxtPrezime.getText());
-        k.setPrezime(jtxtPrezime.getText());
-        k.setTipKorisnika((String) comboTipKorisnika.getSelectedItem());
-        k.setTelefon(jtxtBrojTelefona.getText());
-        k.setSlika(jtxtSlika.getText());
-        k.setEmail(jtxtEmail.getText());
 
-        SingletonHolder.getInstance().getKorisnici().add(k);
+        if (jtxtKorisnickoIme.getText().equals("") || jtxtLozinka.getText().equals("") || jtxtIme.getText().equals("") || jtxtPrezime.getText().equals("") || comboTipKorisnika.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(this, "Morate popuniti obavezna polja", "Greška", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Korisnik k = new Korisnik();
+            List<Korisnik> korisnici = SingletonHolder.getInstance().getKorisnici();
+           boolean postoji=false;
+            
+            for (int i = 0; i < korisnici.size(); i++) {
+                Korisnik k1 = korisnici.get(i);
+                if (k1.getKorisnickoIme().equals(jtxtKorisnickoIme.getText())){
+                postoji=true;
+                break;
+                }
+            }
+            if (!postoji){
+             k.setKorisnickoIme(jtxtKorisnickoIme.getText());
+            k.setKorisnickaSifra(jtxtLozinka.getText());
+            k.setIme(jtxtIme.getText());
+            k.setPrezime(jtxtPrezime.getText());
+            k.setPrezime(jtxtPrezime.getText());
+            k.setTipKorisnika((String) comboTipKorisnika.getSelectedItem());
+            k.setTelefon(jtxtBrojTelefona.getText());
+            k.setSlika(jtxtSlika.getText());
+            k.setEmail(jtxtEmail.getText());
+
+            korisnici.add(k);
+            }
+            else {
+                  JOptionPane.showMessageDialog(this, "Korisničko ime već postoji!", "Greška", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_jbtnPotvrdiActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox comboTipKorisnika;

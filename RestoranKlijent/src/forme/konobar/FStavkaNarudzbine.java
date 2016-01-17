@@ -162,7 +162,6 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
         this.dispose();
         jtblStavke.revalidate();
         jtblStavke.repaint();
-        
 
     }//GEN-LAST:event_jbtnDodajStavkuActionPerformed
 

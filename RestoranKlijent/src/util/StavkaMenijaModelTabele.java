@@ -62,8 +62,8 @@ public class StavkaMenijaModelTabele extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-          switch (column) {
-            case 0:            
+        switch (column) {
+            case 0:
                 return "Naziv stavke";
             case 1:
                 return "Cena";

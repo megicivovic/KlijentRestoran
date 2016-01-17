@@ -28,7 +28,7 @@ public class ButtonEditorObrisiNarudzbinu extends DefaultCellEditor {
         button = new JButton();
         button.setOpaque(true);
         button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {         
+            public void actionPerformed(ActionEvent e) {
                 int id = tabela.getSelectedRow();
                 Narudzbina narudzbina = ((NarudzbinaModelTabeleKonobar) tabela.getModel()).vratiListu().get(id);
 
@@ -37,7 +37,7 @@ public class ButtonEditorObrisiNarudzbinu extends DefaultCellEditor {
                         "Brisanje narudžbine",
                         JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) {
-                    ((NarudzbinaModelTabeleKonobar)tabela.getModel()).obrisiRed(id);
+                    ((NarudzbinaModelTabeleKonobar) tabela.getModel()).obrisiRed(id);
                     tabela.repaint();
                     JOptionPane.showMessageDialog(tabela, "Uspešno ste obrisali narudžbinu!", "Brisanje narudžbine", JOptionPane.INFORMATION_MESSAGE);
                 }

@@ -13,7 +13,6 @@ import util.ButtonEditorObrisiKategoriju;
 import util.ButtonEditorObrisiPotkategoriju;
 import util.ButtonEditorObrisiStavkuMenija;
 import util.ButtonRenderer;
-import domen.Kategorija;
 import util.KategorijaModelTabele;
 import util.PotkategorijaModelTabele;
 import util.SingletonHolder;
@@ -199,7 +198,6 @@ public class FJelovnik extends javax.swing.JPanel {
         stavkaMenijaForma.setVisible(true);
     }//GEN-LAST:event_jbtnStavkaMenijaActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -217,9 +215,8 @@ public class FJelovnik extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void srediFormu() {
-        
+
         //tabela kategorije
-       
         jtblKategorije.setModel(new KategorijaModelTabele(SingletonHolder.getInstance().getKategorije()));
         jtblKategorije.getColumn("Izmeni").setCellRenderer(new ButtonRenderer());
 
@@ -229,9 +226,8 @@ public class FJelovnik extends javax.swing.JPanel {
 
         jtblKategorije.getColumn("Obriši").setCellEditor(new ButtonEditorObrisiKategoriju(new JCheckBox(),
                 jtblKategorije));
-        
-         //tabela potkategorije
-       
+
+        //tabela potkategorije
         jtblPotkategorije.setModel(new PotkategorijaModelTabele(SingletonHolder.getInstance().getPotkategorije()));
         jtblPotkategorije.getColumn("Izmeni").setCellRenderer(new ButtonRenderer());
 
@@ -241,9 +237,8 @@ public class FJelovnik extends javax.swing.JPanel {
 
         jtblPotkategorije.getColumn("Obriši").setCellEditor(new ButtonEditorObrisiPotkategoriju(new JCheckBox(),
                 jtblPotkategorije));
-        
-         //tabela stavke menija
-       
+
+        //tabela stavke menija
         jtblStavke.setModel(new StavkaMenijaModelTabele(SingletonHolder.getInstance().getStavkeMenija()));
         jtblStavke.getColumn("Izmeni").setCellRenderer(new ButtonRenderer());
 
@@ -253,6 +248,6 @@ public class FJelovnik extends javax.swing.JPanel {
 
         jtblStavke.getColumn("Obriši").setCellEditor(new ButtonEditorObrisiStavkuMenija(new JCheckBox(),
                 jtblStavke));
-        
+
     }
 }

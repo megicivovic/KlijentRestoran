@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class StavkaMenija {
 
-    private String naziv;  
+    private String naziv;
     private Potkategorija potkategorija;
     private int cena;
 
@@ -25,7 +25,6 @@ public class StavkaMenija {
         this.naziv = naziv;
     }
 
-   
     public Potkategorija getPotkategorija() {
         return potkategorija;
     }
@@ -47,7 +46,6 @@ public class StavkaMenija {
         return naziv;
     }
 
-   
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -63,6 +61,4 @@ public class StavkaMenija {
         return true;
     }
 
-    
-    
 }

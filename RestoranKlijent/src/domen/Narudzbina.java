@@ -14,11 +14,12 @@ import java.util.List;
  * @author Megi
  */
 public class Narudzbina {
+
     private String sto;
     private Korisnik konobar;
     private Date vreme;
-   
-    private List<StavkaNarudzbine> stavke=new LinkedList<>();
+
+    private List<StavkaNarudzbine> stavke = new LinkedList<>();
 
     public String getSto() {
         return sto;
@@ -54,11 +55,7 @@ public class Narudzbina {
 
     @Override
     public String toString() {
-       return sto;
+        return sto;
     }
 
-   
-    
-    
-    
 }

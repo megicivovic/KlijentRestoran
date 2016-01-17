@@ -5,8 +5,8 @@
  */
 package util;
 
-import domen.Kategorija;
 import domen.Narudzbina;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -49,7 +49,8 @@ public class NarudzbinaModelTabeleAdministrator extends AbstractTableModel {
             case 1:
                 return p.getKonobar();
             case 2:
-                return p.getVreme();
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm dd.MM.yyyy");
+                return sdf.format(p.getVreme());
             case 3:
                 return "...";
 
@@ -90,7 +91,7 @@ public class NarudzbinaModelTabeleAdministrator extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        if ( columnIndex == 3) {
+        if (columnIndex == 3) {
             return true;
         }
         return false;

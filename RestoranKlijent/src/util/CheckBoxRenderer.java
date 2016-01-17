@@ -6,7 +6,6 @@
 package util;
 
 import java.awt.Component;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import javax.swing.UIManager;

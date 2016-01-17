@@ -5,7 +5,6 @@
  */
 package forme.admin;
 
-import java.awt.Dimension;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -19,7 +18,7 @@ public class FGlavnaAdmin extends javax.swing.JFrame {
      * Creates new form FGlavna
      */
     public FGlavnaAdmin() {
-        initComponents();       
+        initComponents();
     }
 
     /**

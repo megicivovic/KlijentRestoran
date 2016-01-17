@@ -5,7 +5,6 @@
  */
 package util;
 
-import domen.Kategorija;
 import domen.Narudzbina;
 import java.util.List;
 import java.util.logging.Level;

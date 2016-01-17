@@ -5,10 +5,6 @@
  */
 package forme.admin;
 
-import java.io.File;
-import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-
 /**
  *
  * @author Megi
@@ -79,7 +75,6 @@ public class FIzborSlike extends javax.swing.JFrame {
             fuk.setPutanjaSlike(jFileChooser2.getSelectedFile().getAbsolutePath());
             this.dispose();
         }
-
 
     }//GEN-LAST:event_jFileChooser2ActionPerformed
 

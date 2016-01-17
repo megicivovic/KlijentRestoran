@@ -6,8 +6,6 @@
 package util;
 
 import domen.Narudzbina;
-import forme.admin.FKategorija;
-import forme.konobar.FNarudzbine;
 import forme.konobar.FNarudzbineDetalji;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -38,7 +36,7 @@ public class ButtonEditorNarudzbinaDetalji extends DefaultCellEditor {
                 Narudzbina narudzbina = ((NarudzbinaModelTabeleAdministrator) tabela.getModel()).vratiListu().get(id);
                 FNarudzbineDetalji fn = null;
                 try {
-                    fn = new FNarudzbineDetalji(narudzbina);                     
+                    fn = new FNarudzbineDetalji(narudzbina);
                     fn.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(ButtonEditorNarudzbinaDetalji.class.getName()).log(Level.SEVERE, null, ex);

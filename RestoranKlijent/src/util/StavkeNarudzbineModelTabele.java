@@ -5,9 +5,6 @@
  */
 package util;
 
-import domen.Kategorija;
-import domen.Narudzbina;
-import domen.StavkaMenija;
 import domen.StavkaNarudzbine;
 import java.util.List;
 import java.util.logging.Level;
@@ -95,7 +92,7 @@ public class StavkeNarudzbineModelTabele extends AbstractTableModel {
         switch (column) {
             case 0:
                 return String.class;
-            case 1:                
+            case 1:
                 return Integer.class;
             case 2:
                 return Boolean.class;

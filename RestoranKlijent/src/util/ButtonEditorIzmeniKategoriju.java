@@ -10,8 +10,6 @@ import forme.admin.FKategorija;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
@@ -38,7 +36,7 @@ public class ButtonEditorIzmeniKategoriju extends DefaultCellEditor {
                 Kategorija kategorija = ((KategorijaModelTabele) tabela.getModel()).vratiListu().get(id);
                 FKategorija fk = null;
                 try {
-                    fk = new FKategorija(kategorija,tabela);                      
+                    fk = new FKategorija(kategorija, tabela);
                     fk.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(ButtonEditorIzmeniKategoriju.class.getName()).log(Level.SEVERE, null, ex);

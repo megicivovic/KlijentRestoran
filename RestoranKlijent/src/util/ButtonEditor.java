@@ -5,14 +5,9 @@
  */
 package util;
 
-
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -35,8 +30,8 @@ public class ButtonEditor extends DefaultCellEditor {
             public void actionPerformed(ActionEvent e) {//         
                 int id = tabela.getSelectedRow();
                 int tretmanID = (int) tabela.getModel().getValueAt(id, 0);
-           
-              JOptionPane.showMessageDialog(tabela, "Porukã!");
+
+                JOptionPane.showMessageDialog(tabela, "Porukã!");
 
             }
         });
