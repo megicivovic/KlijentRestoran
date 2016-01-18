@@ -38,6 +38,7 @@ public class ButtonEditorObrisiNarudzbinu extends DefaultCellEditor {
                         JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) {
                     ((NarudzbinaModelTabeleKonobar) tabela.getModel()).obrisiRed(id);
+                    tabela.revalidate();
                     tabela.repaint();
                     JOptionPane.showMessageDialog(tabela, "Uspešno ste obrisali narudžbinu!", "Brisanje narudžbine", JOptionPane.INFORMATION_MESSAGE);
                 }

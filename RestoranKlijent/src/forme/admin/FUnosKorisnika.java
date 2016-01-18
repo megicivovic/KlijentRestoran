@@ -234,6 +234,7 @@ public class FUnosKorisnika extends javax.swing.JPanel {
                   JOptionPane.showMessageDialog(this, "Korisničko ime već postoji!", "Greška", JOptionPane.ERROR_MESSAGE);
             }
         }
+        JOptionPane.showMessageDialog(this, "Uspešno ste dodali korisnika!", "Unos korisnika", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jbtnPotvrdiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

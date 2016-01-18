@@ -288,12 +288,13 @@ public class FNarudzbine extends javax.swing.JPanel {
         }
 
         jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(narudzbinePretraga));
+        jtblNarudzbine.revalidate();
+        jtblNarudzbine.repaint();
 
         if (narudzbinePretraga.size() == 0) {
             JOptionPane.showMessageDialog(this, "Nema narudžbina koje zadovoljavaju rezultate pretrage!", "Pretraga", JOptionPane.INFORMATION_MESSAGE);
         }
-        jtblNarudzbine.revalidate();
-        jtblNarudzbine.repaint();
+
     }//GEN-LAST:event_jbtnPronadjiActionPerformed
 
     private void jBtnPonistiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPonistiActionPerformed

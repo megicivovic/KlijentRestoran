@@ -245,7 +245,7 @@ public class FKorisnici extends javax.swing.JPanel {
     }//GEN-LAST:event_jBtnPonistiActionPerformed
 
     private void jBtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPronadjiActionPerformed
-       // List<Korisnik> korisnici = new LinkedList<>(((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu());
+        // List<Korisnik> korisnici = new LinkedList<>(((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu());
         jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
         List<Korisnik> korisniciPretraga = new LinkedList<Korisnik>();
 
@@ -312,11 +312,13 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         jtblKorisnici.setModel(new KorisnikModelTabele(korisniciPretraga));
-        if (korisniciPretraga.size()==0){
-          JOptionPane.showMessageDialog(this, "Nema korisnika koji zadovoljavaju rezultate pretrage!", "Pretraga", JOptionPane.INFORMATION_MESSAGE);
-        }
         jtblKorisnici.revalidate();
         jtblKorisnici.repaint();
+
+        if (korisniciPretraga.size() == 0) {
+            JOptionPane.showMessageDialog(this, "Nema korisnika koji zadovoljavaju rezultate pretrage!", "Pretraga", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_jBtnPronadjiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
