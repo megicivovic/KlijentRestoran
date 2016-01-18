@@ -7,6 +7,9 @@ package forme.admin;
 
 import domen.Potkategorija;
 import domen.StavkaMenija;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import util.SingletonHolder;
@@ -28,6 +31,7 @@ public class FStavkaMenija extends javax.swing.JFrame {
         this.tabela = tabela;
         this.index = tabela.getSelectedRow();
         srediFormu();
+        srediComboBoxeve();
     }
 
     /**
@@ -35,10 +39,13 @@ public class FStavkaMenija extends javax.swing.JFrame {
      */
     public FStavkaMenija() {
         initComponents();
+        srediComboBoxeve();
     }
 
-    FStavkaMenija(JTable jtblStavke) {
+    public FStavkaMenija(JTable jtblStavke) {
+        initComponents();
         tabela = jtblStavke;
+        srediComboBoxeve();
     }
 
     /**
@@ -53,8 +60,6 @@ public class FStavkaMenija extends javax.swing.JFrame {
         jtxtCena = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         comboKategorija = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        jtxtKljucneReci = new javax.swing.JTextField();
         jbtnOdustani = new javax.swing.JButton();
         jbtnPotvrdi = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -69,8 +74,6 @@ public class FStavkaMenija extends javax.swing.JFrame {
         jLabel3.setText("Kategorija");
 
         comboKategorija.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "hrana" }));
-
-        jLabel2.setText("Ključne reči");
 
         jbtnOdustani.setText("Odustani");
         jbtnOdustani.addActionListener(new java.awt.event.ActionListener() {
@@ -99,35 +102,36 @@ public class FStavkaMenija extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxtCena, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(comboKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
                                 .addComponent(jbtnPotvrdi)
                                 .addGap(46, 46, 46)
-                                .addComponent(jbtnOdustani))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtxtCena)
-                                    .addComponent(jtxtKljucneReci)
-                                    .addComponent(comboKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addGap(30, 30, 30)
-                        .addComponent(jtxtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                                .addComponent(jbtnOdustani)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel5)
+                            .addGap(30, 30, 30)
+                            .addComponent(jtxtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,15 +148,11 @@ public class FStavkaMenija extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jtxtNaziv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtCena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxtKljucneReci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnOdustani)
                     .addComponent(jbtnPotvrdi))
@@ -226,14 +226,12 @@ public class FStavkaMenija extends javax.swing.JFrame {
     private javax.swing.JComboBox comboKategorija;
     private javax.swing.JComboBox comboPotkategorija;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbtnOdustani;
     private javax.swing.JButton jbtnPotvrdi;
     private javax.swing.JTextField jtxtCena;
-    private javax.swing.JTextField jtxtKljucneReci;
     private javax.swing.JTextField jtxtNaziv;
     // End of variables declaration//GEN-END:variables
 
@@ -251,8 +249,21 @@ public class FStavkaMenija extends javax.swing.JFrame {
 
         jtxtNaziv.setText(stavkaMenija.getNaziv());
         jtxtCena.setText(stavkaMenija.getCena() + "");
-        jtxtKljucneReci.setText(stavkaMenija.getPotkategorija().getKategorija().getKljucneReci());
         comboPotkategorija.setSelectedItem(stavkaMenija.getPotkategorija());
         comboKategorija.setSelectedItem(stavkaMenija.getPotkategorija().getKategorija());
+    }
+
+    private void srediComboBoxeve() {
+        comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
+        comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
+        comboKategorija.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                List<Potkategorija> lista = SingletonHolder.getInstance().getPotkategorije(comboKategorija.getSelectedItem().toString());
+                comboPotkategorija.setModel(new DefaultComboBoxModel(lista.toArray()));
+                comboPotkategorija.revalidate();
+                comboPotkategorija.repaint();
+            }
+        });
+
     }
 }

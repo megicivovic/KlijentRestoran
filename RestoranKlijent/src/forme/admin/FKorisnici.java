@@ -247,13 +247,13 @@ public class FKorisnici extends javax.swing.JPanel {
     private void jBtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPronadjiActionPerformed
         // List<Korisnik> korisnici = new LinkedList<>(((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu());
         jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
-        List<Korisnik> korisniciPretraga = new LinkedList<Korisnik>();
+        List<Korisnik> korisniciPretraga = new LinkedList<Korisnik>(SingletonHolder.getInstance().getKorisnici());
 
         if (!jtxtKorisnickoIme.getText().equals("")) {
             for (int i = 0; i < korisniciPretraga.size(); i++) {
                 Korisnik n = korisniciPretraga.get(i);
-                if (n.getKorisnickoIme().contains(jtxtKorisnickoIme.getText())) {
-                    korisniciPretraga.add(n);
+                if (!n.getKorisnickoIme().contains(jtxtKorisnickoIme.getText())) {
+                    korisniciPretraga.remove(n);
                 }
             }
         }

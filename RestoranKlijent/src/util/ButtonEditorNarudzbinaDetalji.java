@@ -33,14 +33,14 @@ public class ButtonEditorNarudzbinaDetalji extends DefaultCellEditor {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {//         
                 int id = tabela.getSelectedRow();
-                Narudzbina narudzbina = ((NarudzbinaModelTabeleAdministrator) tabela.getModel()).vratiListu().get(id);
-                FNarudzbineDetalji fn = null;
-                try {
-                    fn = new FNarudzbineDetalji(narudzbina);
-                    fn.setVisible(true);
-                } catch (Exception ex) {
-                    Logger.getLogger(ButtonEditorNarudzbinaDetalji.class.getName()).log(Level.SEVERE, null, ex);
+                Narudzbina narudzbina = null;
+                if (tabela.getModel() instanceof NarudzbinaModelTabeleAdministrator) {
+                    narudzbina = ((NarudzbinaModelTabeleAdministrator) tabela.getModel()).vratiListu().get(id);
+                } else {
+                    narudzbina = ((NarudzbinaModelTabeleKonobar) tabela.getModel()).vratiListu().get(id);
                 }
+                FNarudzbineDetalji fn = new FNarudzbineDetalji(narudzbina,id);
+                fn.setVisible(true);
 
             }
         });

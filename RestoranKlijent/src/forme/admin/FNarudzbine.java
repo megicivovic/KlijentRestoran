@@ -10,19 +10,13 @@ import domen.StavkaNarudzbine;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
@@ -136,19 +130,17 @@ public class FNarudzbine extends javax.swing.JPanel {
                     .addComponent(comboKategorija, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jpnlDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2))
-                .addGap(59, 59, 59)
+                    .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboStavkaMenija, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtKonobar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jtxtKonobar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboStavkaMenija, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -169,8 +161,8 @@ public class FNarudzbine extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxtKonobar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,45 +174,43 @@ public class FNarudzbine extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboKategorija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboPotkategorija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(comboStavkaMenija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnPonisti, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnPronadji, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPronadjiActionPerformed
         List<Narudzbina> narudzbine = ((NarudzbinaModelTabeleAdministrator) jtblNarudzbine.getModel()).vratiListu();
         jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(narudzbine));
-        List<Narudzbina> narudzbinePretraga = new LinkedList<Narudzbina>();
+        List<Narudzbina> narudzbinePretraga = new LinkedList<Narudzbina>(narudzbine);
 
-        for (int i = 0; i < narudzbine.size(); i++) {
-            Narudzbina n = narudzbine.get(i);
-            if ((java.util.Date) datePicker.getModel().getValue() != null) {
-
+        if ((java.util.Date) datePicker.getModel().getValue() != null) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
                 GregorianCalendar dan = new GregorianCalendar();
                 dan.setTime((java.util.Date) datePicker.getModel().getValue());
 
                 GregorianCalendar dan2 = new GregorianCalendar();
                 dan2.setTime((java.util.Date) n.getVreme());
 
-                if (dan.getTime() == dan2.getTime()) {
-                    narudzbinePretraga.add(n);
+                if (dan.getTime() != dan2.getTime()) {
+                    narudzbinePretraga.remove(n);
                 }
             }
         }
@@ -233,9 +223,11 @@ public class FNarudzbine extends javax.swing.JPanel {
                 }
             }
         }
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n = narudzbinePretraga.get(i);
-            if (!jtxtSto.getText().equals("")) {
+
+        if (!jtxtSto.getText().equals("")) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
+
                 if (!n.getSto().contains(jtxtSto.getText())) {
                     narudzbinePretraga.remove(n);
                 }
@@ -262,9 +254,9 @@ public class FNarudzbine extends javax.swing.JPanel {
             }
 
         }
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n = narudzbinePretraga.get(i);
-            if (comboPotkategorija.getSelectedIndex() > -1) {
+        if (comboPotkategorija.getSelectedIndex() > -1) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
                     StavkaNarudzbine sm = n.getStavke().get(j);
                     if (!sm.getStavkaMenija().getPotkategorija().equals(comboPotkategorija.getSelectedItem())) {
@@ -274,9 +266,10 @@ public class FNarudzbine extends javax.swing.JPanel {
             }
 
         }
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n = narudzbinePretraga.get(i);
-            if (comboStavkaMenija.getSelectedIndex() > -1) {
+
+        if (comboStavkaMenija.getSelectedIndex() > -1) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
                     StavkaNarudzbine sm = n.getStavke().get(j);
                     if (!sm.equals(comboStavkaMenija.getSelectedItem())) {

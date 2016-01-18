@@ -7,6 +7,7 @@ package forme.konobar;
 
 import domen.Narudzbina;
 import domen.StavkaNarudzbine;
+import java.util.Date;
 import util.SingletonHolder;
 import util.StavkeNarudzbineModelTabele;
 
@@ -16,7 +17,8 @@ import util.StavkeNarudzbineModelTabele;
  */
 public class FNarudzbineDetalji extends javax.swing.JFrame {
 
-    private Narudzbina narudzbina;
+    private Narudzbina narudzbina = null;
+    private int indeks;
 
     /**
      * Creates new form FNarudzbineDetalji
@@ -26,9 +28,10 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
 
     }
 
-    public FNarudzbineDetalji(Narudzbina narudzbina) {
+    public FNarudzbineDetalji(Narudzbina narudzbina, int indeks) {
         initComponents();
         this.narudzbina = narudzbina;
+        this.indeks = indeks;
         srediFormu();
 
         //to do -stavke model i greske svuda
@@ -45,20 +48,17 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
 
         jtxtSto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jtxtPlaceno = new javax.swing.JTextField();
         jbtnUkloniStavku = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblStavke = new javax.swing.JTable();
         jbtnDodajStavku = new javax.swing.JButton();
         jbtnObelezi = new javax.swing.JButton();
+        jbtnSacuvaj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Narudzbina");
 
         jLabel1.setText("Sto");
-
-        jLabel2.setText("Plaćeno");
 
         jbtnUkloniStavku.setText("- Ukloni stavke");
         jbtnUkloniStavku.addActionListener(new java.awt.event.ActionListener() {
@@ -92,55 +92,57 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
             }
         });
 
+        jbtnSacuvaj.setText("Sačuvaj");
+        jbtnSacuvaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnSacuvajActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxtPlaceno, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(26, 26, 26)
-                        .addComponent(jbtnObelezi))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(120, 120, 120)
-                            .addComponent(jbtnDodajStavku)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jbtnUkloniStavku))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                                .addGap(82, 82, 82)
+                                .addComponent(jbtnDodajStavku)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jbtnUkloniStavku))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)
+                        .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtnObelezi)))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbtnSacuvaj)
+                .addGap(198, 198, 198))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtxtPlaceno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtxtSto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnObelezi))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnDodajStavku)
                     .addComponent(jbtnUkloniStavku))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(jbtnSacuvaj))
         );
 
         pack();
@@ -166,9 +168,25 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
     private void jbtnObeleziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnObeleziActionPerformed
         for (int i = 0; i < ((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu().size(); i++) {
             ((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu().get(i).setPlaceno(true);
+            jtblStavke.revalidate();;
+            jtblStavke.repaint();
         }
 
     }//GEN-LAST:event_jbtnObeleziActionPerformed
+
+    private void jbtnSacuvajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSacuvajActionPerformed
+        if (narudzbina == null) {
+            narudzbina = new Narudzbina();
+            narudzbina.setSto(jtxtSto.getText());
+            narudzbina.setVreme(new Date());
+            narudzbina.setKonobar(SingletonHolder.getInstance().getUlogovaniKorisnik());
+            narudzbina.setStavke(((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu());
+            SingletonHolder.getInstance().getNarudzbine().add(narudzbina);
+        } else {
+            SingletonHolder.getInstance().getNarudzbine().set(indeks, narudzbina);
+        }
+
+    }//GEN-LAST:event_jbtnSacuvajActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,27 +225,20 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnDodajStavku;
     private javax.swing.JButton jbtnObelezi;
+    private javax.swing.JButton jbtnSacuvaj;
     private javax.swing.JButton jbtnUkloniStavku;
     private javax.swing.JTable jtblStavke;
-    private javax.swing.JTextField jtxtPlaceno;
     private javax.swing.JTextField jtxtSto;
     // End of variables declaration//GEN-END:variables
 
     private void srediFormu() {
         jtxtSto.setText(narudzbina.getSto());
-        if (narudzbina.getStavke().size() == 0) {
-            jtxtPlaceno.setText("da");
-        } else {
-            jtxtPlaceno.setText("ne");
-        }
         jtblStavke.setModel(new StavkeNarudzbineModelTabele(narudzbina.getStavke()));
         if (SingletonHolder.getInstance().getUlogovaniKorisnik().getKorisnickoIme().equals("admin")) {
             jtxtSto.setEnabled(false);
-            jtxtPlaceno.setEnabled(false);
             jbtnDodajStavku.setVisible(false);
             jbtnUkloniStavku.setVisible(false);
             jtblStavke.setEnabled(false);

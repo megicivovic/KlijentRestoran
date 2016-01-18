@@ -228,20 +228,30 @@ public class FStavkaNarudzbine extends javax.swing.JFrame {
 
     private void srediFormu() {
         comboKategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getKategorije().toArray()));
+        comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
+        comboStavkaMenija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getStavkeMenija().toArray()));
+
+        //comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije( comboKategorija.getSelectedItem().toString()).toArray()));
+        //  comboPotkategorija.setSelectedIndex(0);
+       // comboStavkaMenija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getStavkeMenija(comboPotkategorija.getSelectedItem().toString()).toArray()));
+        comboKategorija.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                List<Potkategorija> lista = SingletonHolder.getInstance().getPotkategorije(comboKategorija.getSelectedItem().toString());
+                comboPotkategorija.setModel(new DefaultComboBoxModel(lista.toArray()));
+                comboPotkategorija.revalidate();
+                comboPotkategorija.repaint();
+            }
+        });
 
         comboPotkategorija.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                List<StavkaMenija> lista = new LinkedList<>();
-                Potkategorija pk = (Potkategorija) comboPotkategorija.getSelectedItem();
-                for (StavkaMenija sm : SingletonHolder.getInstance().getStavkeMenija()) {
-                    if (sm.getPotkategorija().equals(pk)) {
-                        lista.add(sm);
-                    }
-                }
+                List<StavkaMenija> lista = SingletonHolder.getInstance().getStavkeMenija(comboPotkategorija.getSelectedItem().toString());
                 comboStavkaMenija.setModel(new DefaultComboBoxModel(lista.toArray()));
+                comboStavkaMenija.revalidate();
+                comboStavkaMenija.repaint();
             }
+
         });
-        //comboPotkategorija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getPotkategorije().toArray()));
-        //comboStavkaMenija.setModel(new DefaultComboBoxModel(SingletonHolder.getInstance().getStavkeMenija().toArray()));
+
     }
 }

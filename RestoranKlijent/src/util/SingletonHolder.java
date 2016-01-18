@@ -12,6 +12,7 @@ import domen.Kategorija;
 import domen.Narudzbina;
 import domen.StavkaNarudzbine;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -138,7 +139,15 @@ public final class SingletonHolder {
         Narudzbina n1 = new Narudzbina();
         n1.setSto("sto1");
         n1.setKonobar(ko3);
-        n1.setVreme(new Date(2015, 10, 3, 14, 0));
+
+        String year = "2016";
+        String month = "1";
+        String day = "1";
+
+        GregorianCalendar newGregCal = new GregorianCalendar(Integer.parseInt(year),
+                Integer.parseInt(month) - 1, Integer.parseInt(day), 12, 0);
+        n1.setVreme(newGregCal.getTime());
+
         StavkaNarudzbine sn1 = new StavkaNarudzbine();
         sn1.setStavkaMenija(sm3);
         sn1.setPlaceno(true);
@@ -152,21 +161,43 @@ public final class SingletonHolder {
         Narudzbina n2 = new Narudzbina();
         n2.setSto("sto5");
         n2.setKonobar(ko3);
-        n2.setVreme(new Date(2015, 10, 3, 12, 0));
+
+        String year2 = "2016";
+        String month2 = "1";
+        String day2 = "5";
+
+        GregorianCalendar newGregCal2 = new GregorianCalendar(Integer.parseInt(year2),
+                Integer.parseInt(month2) - 1, Integer.parseInt(day2), 10, 0);
+        n2.setVreme(newGregCal2.getTime());
+
         n2.getStavke().add(sn2);
         n2.getStavke().add(sn1);
 
         Narudzbina n3 = new Narudzbina();
-        n3.setSto("sto1");
+        n3.setSto("sto2");
         n3.setKonobar(ko3);
-        n3.setVreme(new Date(2015, 10, 3, 8, 0));
+
+        String year3 = "2016";
+        String month3 = "1";
+        String day3 = "13";
+        GregorianCalendar newGregCal3 = new GregorianCalendar(Integer.parseInt(year3),
+                Integer.parseInt(month3) - 1, Integer.parseInt(day3), 14, 0);
+        n3.setVreme(newGregCal3.getTime());
+
         n3.getStavke().add(sn2);
         n3.getStavke().add(sn1);
 
         Narudzbina n4 = new Narudzbina();
         n4.setSto("sto6");
         n4.setKonobar(ko1);
-        n4.setVreme(new Date(2015, 10, 3, 10, 0));
+        String year4 = "2016";
+        String month4 = "1";
+        String day4 = "25";
+
+        GregorianCalendar newGregCal4 = new GregorianCalendar(Integer.parseInt(year4),
+                Integer.parseInt(month4) - 1, Integer.parseInt(day4), 13, 0);
+        n4.setVreme(newGregCal4.getTime());
+
         n4.getStavke().add(sn2);
         n4.getStavke().add(sn1);
 
@@ -239,6 +270,29 @@ public final class SingletonHolder {
             }
         }
         return narudzbineKorisnik;
+    }
+
+    public List<Potkategorija> getPotkategorije(String kategorija) {
+        List<Potkategorija> lista = new LinkedList<>();
+        for (int i = 0; i < getPotkategorije().size(); i++) {
+            Potkategorija pk = getPotkategorije().get(i);
+            if (pk.getKategorija().getNaziv().equals(kategorija)) {
+                lista.add(pk);
+
+            }
+        }
+        return lista;
+    }
+
+    public List<StavkaMenija> getStavkeMenija(String potkategorija) {
+        List<StavkaMenija> lista = new LinkedList<>();
+        for (int i = 0; i < getStavkeMenija().size(); i++) {
+            StavkaMenija sm = getStavkeMenija().get(i);
+            if (sm.getPotkategorija().getNaziv().equals(potkategorija)) {
+                lista.add(sm);
+            }
+        }
+        return lista;
     }
 
 }
