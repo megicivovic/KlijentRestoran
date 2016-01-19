@@ -6,6 +6,8 @@
 package forme.admin;
 
 import domen.Korisnik;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -18,6 +20,8 @@ import util.SingletonHolder;
  * @author Megi
  */
 public class FKorisnici extends javax.swing.JPanel {
+
+    boolean tipKorisnikaPromenjen;
 
     /**
      * Creates new form FKorisnici
@@ -242,6 +246,7 @@ public class FKorisnici extends javax.swing.JPanel {
         jtxtLozinka.setText("");
         jtxtPrezime.setText("");
         jtxtTelefon.setText("");
+        tipKorisnikaPromenjen=false;
     }//GEN-LAST:event_jBtnPonistiActionPerformed
 
     private void jBtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPronadjiActionPerformed
@@ -285,7 +290,7 @@ public class FKorisnici extends javax.swing.JPanel {
             }
         }
 
-        if (comboTipKorisnika.getSelectedIndex() > -1) {
+        if (tipKorisnikaPromenjen) {
             for (int i = 0; i < korisniciPretraga.size(); i++) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getTipKorisnika().equals(comboTipKorisnika.getSelectedItem())) {
@@ -346,5 +351,13 @@ public class FKorisnici extends javax.swing.JPanel {
 
     private void srediFormu() {
         jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
+        comboTipKorisnika.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                tipKorisnikaPromenjen = true;
+            }
+
+        });
     }
 }

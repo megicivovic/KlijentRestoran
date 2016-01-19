@@ -10,9 +10,12 @@ import domen.StavkaNarudzbine;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Properties;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
@@ -33,6 +36,9 @@ import util.SingletonHolder;
 public class FNarudzbine extends javax.swing.JPanel {
 
     private JDatePickerImpl datePicker;
+    boolean kategorijaPromenjena;
+    boolean potkategorijaPromenjena;
+    boolean stavkaMenijaPromenjena;
 
     /**
      * Creates new form FKorisnici
@@ -209,15 +215,16 @@ public class FNarudzbine extends javax.swing.JPanel {
                 GregorianCalendar dan2 = new GregorianCalendar();
                 dan2.setTime((java.util.Date) n.getVreme());
 
-                if (dan.getTime() != dan2.getTime()) {
+                if (dan.get(GregorianCalendar.DAY_OF_MONTH) != dan2.get(GregorianCalendar.DAY_OF_MONTH) || dan.get(GregorianCalendar.MONTH) != dan2.get(GregorianCalendar.MONTH)) {
                     narudzbinePretraga.remove(n);
                 }
             }
         }
 
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n1 = narudzbinePretraga.get(i);
-            if (!jtxtSto.getText().equals("")) {
+        if (!jtxtSto.getText().equals("")) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n1 = narudzbinePretraga.get(i);
+
                 if (!n1.getSto().contains(jtxtSto.getText())) {
                     narudzbinePretraga.remove(n1);
                 }
@@ -233,18 +240,21 @@ public class FNarudzbine extends javax.swing.JPanel {
                 }
             }
         }
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n = narudzbinePretraga.get(i);
-            if (!jtxtKonobar.getText().equals("")) {
+
+        if (!jtxtKonobar.getText().equals("")) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
+
                 if (!n.getKonobar().getIme().contains(jtxtKonobar.getText())) {
                     narudzbinePretraga.remove(n);
                 }
             }
         }
 
-        for (int i = 0; i < narudzbinePretraga.size(); i++) {
-            Narudzbina n = narudzbinePretraga.get(i);
-            if (comboKategorija.getSelectedIndex() > -1) {
+        if (kategorijaPromenjena) {
+            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+                Narudzbina n = narudzbinePretraga.get(i);
+
                 for (int j = 0; j < n.getStavke().size(); j++) {
                     StavkaNarudzbine sm = n.getStavke().get(j);
                     if (!sm.getStavkaMenija().getPotkategorija().getKategorija().equals(comboKategorija.getSelectedItem())) {
@@ -254,7 +264,7 @@ public class FNarudzbine extends javax.swing.JPanel {
             }
 
         }
-        if (comboPotkategorija.getSelectedIndex() > -1) {
+        if (potkategorijaPromenjena) {
             for (int i = 0; i < narudzbinePretraga.size(); i++) {
                 Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
@@ -267,7 +277,7 @@ public class FNarudzbine extends javax.swing.JPanel {
 
         }
 
-        if (comboStavkaMenija.getSelectedIndex() > -1) {
+        if (stavkaMenijaPromenjena) {
             for (int i = 0; i < narudzbinePretraga.size(); i++) {
                 Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
@@ -283,6 +293,10 @@ public class FNarudzbine extends javax.swing.JPanel {
         jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(narudzbinePretraga));
         jtblNarudzbine.revalidate();
         jtblNarudzbine.repaint();
+        jtblNarudzbine.getColumn("Detalji").setCellRenderer(new ButtonRenderer());
+
+        jtblNarudzbine.getColumn("Detalji").setCellEditor(new ButtonEditorNarudzbinaDetalji(new JCheckBox(),
+                jtblNarudzbine));
 
         if (narudzbinePretraga.size() == 0) {
             JOptionPane.showMessageDialog(this, "Nema narudžbina koje zadovoljavaju rezultate pretrage!", "Pretraga", JOptionPane.INFORMATION_MESSAGE);
@@ -296,7 +310,13 @@ public class FNarudzbine extends javax.swing.JPanel {
         jtxtSto.setText("");
         datePicker.revalidate();
         datePicker.repaint();
+        kategorijaPromenjena = false;
+        potkategorijaPromenjena = false;
+        stavkaMenijaPromenjena = false;
+        jtblNarudzbine.getColumn("Detalji").setCellRenderer(new ButtonRenderer());
 
+        jtblNarudzbine.getColumn("Detalji").setCellEditor(new ButtonEditorNarudzbinaDetalji(new JCheckBox(),
+                jtblNarudzbine));
     }//GEN-LAST:event_jBtnPonistiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -352,5 +372,29 @@ public class FNarudzbine extends javax.swing.JPanel {
             }
         });
 
+        comboKategorija.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                kategorijaPromenjena = true;
+            }
+
+        });
+        comboPotkategorija.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                potkategorijaPromenjena = true;
+            }
+
+        });
+        comboStavkaMenija.addItemListener(new ItemListener() {
+
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                stavkaMenijaPromenjena = true;
+            }
+
+        });
     }
 }

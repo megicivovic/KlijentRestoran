@@ -252,10 +252,12 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
         jtxtSto.setText(narudzbina.getSto());
         jtblStavke.setModel(new StavkeNarudzbineModelTabele(narudzbina.getStavke()));
         if (SingletonHolder.getInstance().getUlogovaniKorisnik().getKorisnickoIme().equals("admin")) {
-            jtxtSto.setEnabled(false);
+            jtxtSto.setEditable(false);
             jbtnDodajStavku.setVisible(false);
             jbtnUkloniStavku.setVisible(false);
             jtblStavke.setEnabled(false);
+            jbtnSacuvaj.setVisible(false);
+            jbtnObelezi.setVisible(false);
         }
     }
 

@@ -9,6 +9,7 @@ import forme.admin.FLogin;
 import forme.admin.FMojNalog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import util.SingletonHolder;
 
 /**
  *
@@ -21,6 +22,13 @@ public class FGlavnaKonobar extends javax.swing.JFrame {
      */
     public FGlavnaKonobar() {
         initComponents();
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                SingletonHolder.getInstance().odstampajPodatke();
+
+            }
+        });
     }
 
     /**

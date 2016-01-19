@@ -1,0 +1,1 @@
+[{"naziv":"Predjelo","kategorija":{"naziv":"hrana","kljucneReci":"#food#hrana"}},{"naziv":"Gusti sokovi","kategorija":{"naziv":"piće","kljucneReci":"#drink#pice"}},{"naziv":"Sladoled","kategorija":{"naziv":"hrana","kljucneReci":"#food#hrana"}},{"naziv":"Gazirani sokovi","kategorija":{"naziv":"piće","kljucneReci":"#drink#pice"}}]

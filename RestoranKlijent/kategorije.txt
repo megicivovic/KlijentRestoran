@@ -1,0 +1,1 @@
+[{"naziv":"hrana","kljucneReci":"#food#hrana"},{"naziv":"piće","kljucneReci":"#drink#pice"}]

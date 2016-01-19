@@ -7,6 +7,7 @@ package forme.admin;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import util.SingletonHolder;
 
 /**
  *
@@ -19,6 +20,13 @@ public class FGlavnaAdmin extends javax.swing.JFrame {
      */
     public FGlavnaAdmin() {
         initComponents();
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                SingletonHolder.getInstance().odstampajPodatke();
+
+            }
+        });
     }
 
     /**
