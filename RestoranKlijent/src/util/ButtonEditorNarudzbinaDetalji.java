@@ -39,7 +39,7 @@ public class ButtonEditorNarudzbinaDetalji extends DefaultCellEditor {
                 } else {
                     narudzbina = ((NarudzbinaModelTabeleKonobar) tabela.getModel()).vratiListu().get(id);
                 }
-                FNarudzbineDetalji fn = new FNarudzbineDetalji(narudzbina,id);
+                FNarudzbineDetalji fn = new FNarudzbineDetalji(narudzbina,tabela);
                 fn.setVisible(true);
 
             }

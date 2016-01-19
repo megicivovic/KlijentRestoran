@@ -95,7 +95,7 @@ public class FNarudzbine extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnDodajNarudžbinuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnDodajNarudžbinuActionPerformed
-        FNarudzbineDetalji fsn = new FNarudzbineDetalji();
+        FNarudzbineDetalji fsn = new FNarudzbineDetalji(jtblNarudzbine);
         fsn.setVisible(true);
         revalidate();
         repaint();

@@ -8,6 +8,9 @@ package forme.konobar;
 import domen.Narudzbina;
 import domen.StavkaNarudzbine;
 import java.util.Date;
+import java.util.LinkedList;
+import javax.swing.JTable;
+import util.NarudzbinaModelTabeleKonobar;
 import util.SingletonHolder;
 import util.StavkeNarudzbineModelTabele;
 
@@ -18,23 +21,29 @@ import util.StavkeNarudzbineModelTabele;
 public class FNarudzbineDetalji extends javax.swing.JFrame {
 
     private Narudzbina narudzbina = null;
-    private int indeks;
+    private JTable tabela;
+    int indeks;
 
     /**
      * Creates new form FNarudzbineDetalji
      */
     public FNarudzbineDetalji() {
         initComponents();
-
     }
 
-    public FNarudzbineDetalji(Narudzbina narudzbina, int indeks) {
+    public FNarudzbineDetalji(JTable tabela) {
+        initComponents();
+        jtblStavke.setModel(new StavkeNarudzbineModelTabele(new LinkedList<>()));
+        this.tabela = tabela;
+        indeks = tabela.getSelectedRow();
+    }
+
+    public FNarudzbineDetalji(Narudzbina narudzbina, JTable tabela) {
         initComponents();
         this.narudzbina = narudzbina;
-        this.indeks = indeks;
+        this.tabela = tabela;
         srediFormu();
 
-        //to do -stavke model i greske svuda
     }
 
     /**
@@ -181,11 +190,16 @@ public class FNarudzbineDetalji extends javax.swing.JFrame {
             narudzbina.setVreme(new Date());
             narudzbina.setKonobar(SingletonHolder.getInstance().getUlogovaniKorisnik());
             narudzbina.setStavke(((StavkeNarudzbineModelTabele) jtblStavke.getModel()).vratiListu());
-            SingletonHolder.getInstance().getNarudzbine().add(narudzbina);
+            ((NarudzbinaModelTabeleKonobar)tabela.getModel()).vratiListu().add(narudzbina);
+            tabela.revalidate();
+            tabela.repaint();
         } else {
             SingletonHolder.getInstance().getNarudzbine().set(indeks, narudzbina);
+            tabela.revalidate();
+            tabela.repaint();
         }
 
+        this.dispose();
     }//GEN-LAST:event_jbtnSacuvajActionPerformed
 
     /**
