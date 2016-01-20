@@ -8,6 +8,7 @@ package forme.admin;
 import domen.Korisnik;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -246,16 +247,16 @@ public class FKorisnici extends javax.swing.JPanel {
         jtxtLozinka.setText("");
         jtxtPrezime.setText("");
         jtxtTelefon.setText("");
-        tipKorisnikaPromenjen=false;
+        tipKorisnikaPromenjen = false;
     }//GEN-LAST:event_jBtnPonistiActionPerformed
 
     private void jBtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnPronadjiActionPerformed
         // List<Korisnik> korisnici = new LinkedList<>(((KorisnikModelTabele) jtblKorisnici.getModel()).vratiListu());
         jtblKorisnici.setModel(new KorisnikModelTabele(SingletonHolder.getInstance().getKorisnici()));
-        List<Korisnik> korisniciPretraga = new LinkedList<Korisnik>(SingletonHolder.getInstance().getKorisnici());
+        List<Korisnik> korisniciPretraga = new ArrayList<Korisnik>(SingletonHolder.getInstance().getKorisnici());
 
         if (!jtxtKorisnickoIme.getText().equals("")) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getKorisnickoIme().contains(jtxtKorisnickoIme.getText())) {
                     korisniciPretraga.remove(n);
@@ -264,7 +265,7 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         if (!jtxtLozinka.getText().equals("")) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n1 = korisniciPretraga.get(i);
                 if (!n1.getKorisnickaSifra().contains(jtxtLozinka.getText())) {
                     korisniciPretraga.remove(n1);
@@ -273,7 +274,7 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         if (!jtxtIme.getText().equals("")) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getIme().contains(jtxtIme.getText())) {
                     korisniciPretraga.remove(n);
@@ -282,7 +283,7 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         if (!jtxtPrezime.getText().equals("")) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getPrezime().contains(jtxtPrezime.getText())) {
                     korisniciPretraga.remove(n);
@@ -291,7 +292,7 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         if (tipKorisnikaPromenjen) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getTipKorisnika().equals(comboTipKorisnika.getSelectedItem())) {
                     korisniciPretraga.remove(n);
@@ -300,7 +301,7 @@ public class FKorisnici extends javax.swing.JPanel {
         }
 
         if (!jtxtTelefon.getText().equals("")) {
-            for (int i = 0; i < korisniciPretraga.size(); i++) {
+            for (int i = korisniciPretraga.size() - 1; i >= 0; i--) {
                 Korisnik n = korisniciPretraga.get(i);
                 if (!n.getTelefon().contains(jtxtTelefon.getText())) {
                     korisniciPretraga.remove(n);

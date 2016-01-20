@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -204,10 +205,10 @@ public class FNarudzbine extends javax.swing.JPanel {
     private void jbtnPronadjiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPronadjiActionPerformed
         List<Narudzbina> narudzbine = ((NarudzbinaModelTabeleAdministrator) jtblNarudzbine.getModel()).vratiListu();
         jtblNarudzbine.setModel(new NarudzbinaModelTabeleAdministrator(narudzbine));
-        List<Narudzbina> narudzbinePretraga = new LinkedList<Narudzbina>(narudzbine);
+        List<Narudzbina> narudzbinePretraga = new ArrayList<Narudzbina>(narudzbine);
 
         if ((java.util.Date) datePicker.getModel().getValue() != null) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+            for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n = narudzbinePretraga.get(i);
                 GregorianCalendar dan = new GregorianCalendar();
                 dan.setTime((java.util.Date) datePicker.getModel().getValue());
@@ -215,14 +216,14 @@ public class FNarudzbine extends javax.swing.JPanel {
                 GregorianCalendar dan2 = new GregorianCalendar();
                 dan2.setTime((java.util.Date) n.getVreme());
 
-                if (dan.get(GregorianCalendar.DAY_OF_MONTH) != dan2.get(GregorianCalendar.DAY_OF_MONTH) || dan.get(GregorianCalendar.MONTH) != dan2.get(GregorianCalendar.MONTH)) {
+                if (!(dan.get(GregorianCalendar.DAY_OF_MONTH) == dan2.get(GregorianCalendar.DAY_OF_MONTH) && dan.get(GregorianCalendar.MONTH) == dan2.get(GregorianCalendar.MONTH))) {
                     narudzbinePretraga.remove(n);
                 }
             }
         }
 
         if (!jtxtSto.getText().equals("")) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+            for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n1 = narudzbinePretraga.get(i);
 
                 if (!n1.getSto().contains(jtxtSto.getText())) {
@@ -242,7 +243,7 @@ public class FNarudzbine extends javax.swing.JPanel {
         }
 
         if (!jtxtKonobar.getText().equals("")) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+         for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n = narudzbinePretraga.get(i);
 
                 if (!n.getKonobar().getIme().contains(jtxtKonobar.getText())) {
@@ -252,7 +253,7 @@ public class FNarudzbine extends javax.swing.JPanel {
         }
 
         if (kategorijaPromenjena) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+           for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n = narudzbinePretraga.get(i);
 
                 for (int j = 0; j < n.getStavke().size(); j++) {
@@ -265,7 +266,7 @@ public class FNarudzbine extends javax.swing.JPanel {
 
         }
         if (potkategorijaPromenjena) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+            for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
                     StavkaNarudzbine sm = n.getStavke().get(j);
@@ -278,7 +279,7 @@ public class FNarudzbine extends javax.swing.JPanel {
         }
 
         if (stavkaMenijaPromenjena) {
-            for (int i = 0; i < narudzbinePretraga.size(); i++) {
+           for (int i = narudzbinePretraga.size() - 1; i >= 0; i--) {
                 Narudzbina n = narudzbinePretraga.get(i);
                 for (int j = 0; j < n.getStavke().size(); j++) {
                     StavkaNarudzbine sm = n.getStavke().get(j);
